@@ -24,6 +24,10 @@ function App() {
     setName('');
     setAge('');
   }
+  const clickDeleteBtnHandler = (id) => {
+    const removeUser = users.filter(user => user.id !== id )
+    setUsers(removeUser);
+  }
 
   return (
     <div>
@@ -37,6 +41,7 @@ function App() {
           return (
             <div key={user.id} className="component-style">
               {user.name} - {user.age}
+              <button onClick={() => clickDeleteBtnHandler(user.id)}>삭제</button>
             </div>
           );
         })}
