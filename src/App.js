@@ -1,6 +1,7 @@
 import React from "react";
 import "App.css";
 import { useState } from "react";
+import Users from "components/Users";
 
 function App() {
   const [users, setUsers] = useState([
@@ -37,14 +38,9 @@ function App() {
       </div>
         <button onClick={clickAddBtnHandler}>추가</button>
       <div className="inner">
-        {users.map((user) => {
-          return (
-            <div key={user.id} className="component-style">
-              {user.name} - {user.age}
-              <button onClick={() => clickDeleteBtnHandler(user.id)}>삭제</button>
-            </div>
-          );
-        })}
+      {users.map((item) => {
+      return <Users key={item.id} item={item} clickDeleteBtnHandler={clickDeleteBtnHandler}/>
+    })}
       </div>
     </div>
   );
